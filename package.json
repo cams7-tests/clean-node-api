@@ -4,7 +4,7 @@
   "description": "API em NodeJS com Clean Architecture e TDD",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "lint-staged": {
     "*.js": [
@@ -12,7 +12,7 @@
       "git add"
     ]
   },
-  "husky":  {
+  "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/cams7-tests/clean-node-api#readme",
   "devDependencies": {
     "husky": "^7.0.4",
+    "jest": "^27.4.3",
     "lint-staged": "^12.1.2",
     "standard": "^16.0.4"
   }
