@@ -1,0 +1,24 @@
+{
+  "name": "clean-node-api",
+  "version": "1.0.0",
+  "description": "API em NodeJS com Clean Architecture e TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cams7-tests/clean-node-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "clean",
+    "tdd"
+  ],
+  "author": "César A. Magalhães",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cams7-tests/clean-node-api/issues"
+  },
+  "homepage": "https://github.com/cams7-tests/clean-node-api#readme"
+}
