@@ -7,7 +7,9 @@
     "test": "jest"
   },
   "standard": {
-    "env":["jest"]
+    "env": [
+      "jest"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,7 @@
   },
   "homepage": "https://github.com/cams7-tests/clean-node-api#readme",
   "devDependencies": {
-    "husky": "^7.0.4",
+    "husky": "^4.3.8",
     "jest": "^27.4.3",
     "lint-staged": "^12.1.2",
     "standard": "^16.0.4"
