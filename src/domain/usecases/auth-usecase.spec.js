@@ -80,6 +80,16 @@ const makeUpdateAccessTokenRepository = () => {
   return updateAccessTokenRepositorySpy
 }
 
+const makeUpdateAccessTokenRepositoryWithError = () => {
+  class UpdateAccessTokenRepositorySpy {
+    async update (userId, accessToken) {
+      throw new Error()
+    }
+  }
+
+  return new UpdateAccessTokenRepositorySpy()
+}
+
 const makeSut = () => {
   const loadUserByEmailRepositorySpy = makeLoadUserByEmailRepository()
   const updateAccessTokenRepositorySpy = makeUpdateAccessTokenRepository()
@@ -210,21 +220,31 @@ describe('Auth UseCase', () => {
     const loadUserByEmailRepository = makeLoadUserByEmailRepository()
     const encrypter = makeEncrypter()
     const tokenGenerator = makeTokenGenerator()
+    const updateAccessTokenRepository = makeUpdateAccessTokenRepository()
     const suts = [].concat(
       new AuthUseCase({
         loadUserByEmailRepository: makeLoadUserByEmailRepositoryWithError(),
         encrypter,
-        tokenGenerator
+        tokenGenerator,
+        updateAccessTokenRepository
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter: makeEncrypterWithError(),
-        tokenGenerator
+        tokenGenerator,
+        updateAccessTokenRepository
       }),
       new AuthUseCase({
         loadUserByEmailRepository,
         encrypter,
-        tokenGenerator: makeTokenGeneratorWithError()
+        tokenGenerator: makeTokenGeneratorWithError(),
+        updateAccessTokenRepository
+      }),
+      new AuthUseCase({
+        loadUserByEmailRepository,
+        encrypter,
+        tokenGenerator,
+        updateAccessTokenRepository: makeUpdateAccessTokenRepositoryWithError()
       })
     )
     for (const sut of suts) {
