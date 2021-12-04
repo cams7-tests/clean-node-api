@@ -49,7 +49,7 @@ describe('LoadUserByEmailRepository', () => {
     expect(user).toBeNull()
   })
 
-  test('Should return an user if user is foundan user with id and password only', async () => {
+  test('Should return an user with id and password only', async () => {
     const { sut, userModel } = makeSut()
     const fakeUser = await userModel.insertOne({
       email: 'valid_email@mail.com',
