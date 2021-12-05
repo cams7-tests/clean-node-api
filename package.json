@@ -4,7 +4,7 @@
   "description": "API em NodeJS com Clean Architecture e TDD",
   "main": "src/main/index.js",
   "scripts": {
-    "start":"node src/main/index.js",
+    "start": "node src/main/index.js",
     "test": "jest --colors --noStackTrace",
     "test:unit": "npm test -- --watch -c jest-unit.config.js",
     "test:integration": "npm test -- --watch -c jest-integration.config.js",
@@ -36,7 +36,8 @@
     "husky": "^4.3.8",
     "jest": "^27.4.3",
     "lint-staged": "^12.1.2",
-    "standard": "^16.0.4"
+    "standard": "^16.0.4",
+    "supertest": "^6.1.6"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
