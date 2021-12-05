@@ -17,7 +17,7 @@ describe('UpdateAccessTokenRepository', () => {
   let fakeUserId
 
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    await MongoHelper.connect(process.env.MONGO_URL)
     db = await MongoHelper.db
   })
 
