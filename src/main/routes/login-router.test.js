@@ -1,4 +1,5 @@
 const request = require('supertest')
+const bcrypt = require('bcrypt')
 const app = require('../config/app')
 const MongoHelper = require('../../infra/helpers/mongo-helper')
 
@@ -21,7 +22,7 @@ describe('LoginRouter', () => {
   test('Should return 200 when valid credentials are provided', async () => {
     await userModel.insertOne({
       email: 'valid_email@mail.com',
-      password: 'hashed_password'
+      password: bcrypt.hashSync('hashed_password', 10)
     })
     await request(app).post('/api/login').send({
       email: 'valid_email@mail.com',
